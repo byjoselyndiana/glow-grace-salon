@@ -1,1001 +1,1493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Glow & Grace | Beauty Studio</title>
-
-  <meta name="description" content="Glow & Grace Beauty Studio — Luxury beauty, hair and bridal services. Book your appointment today.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: #3c302b;
-      background: #f8f4ef;
-      line-height: 1.7;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* NAVIGATION */
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 20px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(248, 244, 239, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(60, 48, 43, 0.08);
-    }
-
-    .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .nav-links a:hover {
-      opacity: 0.6;
-    }
-
-    .nav-button {
-      padding: 10px 20px;
-      background: #3c302b;
-      color: white;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 100px 7% 60px;
-      gap: 60px;
-    }
-
-    .hero-text {
-      max-width: 600px;
-    }
-
-    .eyebrow {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 20px;
-      color: #9b7862;
-    }
-
-    .hero h1 {
-      font-size: clamp(60px, 7vw, 100px);
-      line-height: 0.9;
-      margin-bottom: 30px;
-    }
-
-    .hero h1 span {
-      font-style: italic;
-      font-weight: 400;
-    }
-
-    .hero p {
-      max-width: 470px;
-      color: #71635c;
-      margin-bottom: 35px;
-      font-size: 15px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 15px 28px;
-      background: #3c302b;
-      color: white;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: 0.3s;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-      opacity: 0.9;
-    }
-
-    .button-outline {
-      background: transparent;
-      color: #3c302b;
-      border: 1px solid #3c302b;
-    }
-
-    .button-outline:hover {
-      background: #3c302b;
-      color: white;
-    }
-
-    .hero-image {
-      height: 650px;
-      overflow: hidden;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* SECTION */
-
-    section {
-      padding: 100px 7%;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 650px;
-      margin: 0 auto 60px;
-    }
-
-    .section-header h2 {
-      font-size: 60px;
-      line-height: 1;
-      margin-bottom: 20px;
-    }
-
-    .section-header p {
-      color: #756861;
-      font-size: 14px;
-    }
-
-    /* SERVICES */
-
-    .services {
-      background: #eee5dc;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: #cfc1b5;
-    }
-
-    .service {
-      background: #eee5dc;
-      padding: 45px 35px;
-      min-height: 250px;
-    }
-
-    .service-number {
-      font-size: 12px;
-      color: #9b7862;
-      letter-spacing: 2px;
-    }
-
-    .service h3 {
-      font-size: 32px;
-      margin: 25px 0 12px;
-    }
-
-    .service p {
-      font-size: 13px;
-      color: #756861;
-      margin-bottom: 20px;
-    }
-
-    .price {
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    /* ABOUT */
-
-    .about {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .about-image {
-      height: 600px;
-    }
-
-    .about-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .about-text h2 {
-      font-size: 65px;
-      line-height: 1;
-      margin-bottom: 25px;
-    }
-
-    .about-text p {
-      color: #756861;
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
-
-    /* GALLERY */
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .gallery-item {
-      height: 350px;
-      overflow: hidden;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: 0.5s;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
-    /* TESTIMONIALS */
-
-    .testimonials {
-      background: #3c302b;
-      color: white;
-    }
-
-    .testimonials .section-header p {
-      color: #d6cbc4;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .testimonial {
-      padding: 35px;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .stars {
-      letter-spacing: 4px;
-      margin-bottom: 20px;
-      color: #d6b99d;
-    }
-
-    .testimonial p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 23px;
-      line-height: 1.4;
-      margin-bottom: 25px;
-    }
-
-    .testimonial span {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #c8bbb2;
-    }
-
-    /* CONTACT */
-
-    .contact {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-    }
-
-    .contact h2 {
-      font-size: 65px;
-      line-height: 1;
-      margin-bottom: 25px;
-    }
-
-    .contact p {
-      color: #756861;
-      max-width: 500px;
-      margin-bottom: 30px;
-    }
-
-    .contact-details {
-      display: grid;
-      gap: 25px;
-    }
-
-    .contact-detail h3 {
-      font-size: 24px;
-      margin-bottom: 4px;
-    }
-
-    .contact-detail p {
-      margin: 0;
-      font-size: 13px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 40px 7%;
-      border-top: 1px solid #d8cec6;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      color: #756861;
-    }
-
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 25px;
-      color: #3c302b;
-    }
-
-    /* WHATSAPP */
-
-    .whatsapp {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 58px;
-      height: 58px;
-      background: #25D366;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-      z-index: 999;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 850px) {
-
-      nav {
-        padding: 16px 5%;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 120px 6% 50px;
-      }
-
-      .hero-image {
-        height: 500px;
-        order: -1;
-      }
-
-      .hero h1 {
-        font-size: 65px;
-      }
-
-      section {
-        padding: 75px 6%;
-      }
-
-      .section-header h2 {
-        font-size: 48px;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-
-      .about-image {
-        height: 500px;
-      }
-
-      .about-text h2 {
-        font-size: 50px;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .gallery-item {
-        height: 250px;
-      }
-
-      .testimonial-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact {
-        grid-template-columns: 1fr;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 500px) {
-
-      .hero h1 {
-        font-size: 55px;
-      }
-
-      .hero-image {
-        height: 420px;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-item {
-        height: 350px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Glow & Grace | Beauty Studio Chennai</title>
+
+<meta name="description" content="Glow & Grace Beauty Studio in Chennai — Hair, skin, makeup, nails and bridal beauty services. Book your appointment today.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:#f8f4ef;
+color:#352a25;
+line-height:1.7;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+h1,h2,h3{
+font-family:'Cormorant Garamond',serif;
+font-weight:600;
+}
+
+.container{
+width:86%;
+max-width:1250px;
+margin:auto;
+}
+
+.eyebrow{
+font-size:11px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#9b7862;
+margin-bottom:18px;
+}
+
+/* NAV */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+background:rgba(248,244,239,.96);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(53,42,37,.08);
+}
+
+.nav-inner{
+width:86%;
+max-width:1250px;
+margin:auto;
+height:78px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-family:'Cormorant Garamond',serif;
+font-size:30px;
+font-weight:600;
+letter-spacing:1px;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+font-size:11px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+.nav-links a{
+transition:.25s;
+}
+
+.nav-links a:hover{
+color:#9b7862;
+}
+
+.nav-cta{
+background:#352a25;
+color:white;
+padding:12px 20px;
+font-size:11px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+padding:120px 0 70px;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:70px;
+}
+
+.hero-content{
+max-width:600px;
+}
+
+.hero h1{
+font-size:clamp(65px,7vw,105px);
+line-height:.86;
+margin-bottom:30px;
+letter-spacing:-2px;
+}
+
+.hero h1 em{
+font-weight:400;
+}
+
+.hero-description{
+font-size:14px;
+color:#756861;
+max-width:480px;
+margin-bottom:32px;
+}
+
+.hero-buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-block;
+padding:15px 26px;
+background:#352a25;
+color:white;
+font-size:11px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.btn-light{
+background:transparent;
+border:1px solid #352a25;
+color:#352a25;
+}
+
+.hero-image{
+height:650px;
+position:relative;
+}
+
+.hero-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero-badge{
+position:absolute;
+bottom:25px;
+left:-25px;
+background:#f8f4ef;
+padding:22px 28px;
+box-shadow:0 10px 35px rgba(0,0,0,.12);
+}
+
+.hero-badge strong{
+display:block;
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+}
+
+.hero-badge span{
+font-size:10px;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#756861;
+}
+
+/* GENERAL SECTION */
+
+section{
+padding:105px 0;
+}
+
+.section-heading{
+text-align:center;
+max-width:650px;
+margin:0 auto 60px;
+}
+
+.section-heading h2{
+font-size:62px;
+line-height:1;
+margin-bottom:18px;
+}
+
+.section-heading p{
+font-size:13px;
+color:#756861;
+}
+
+/* TRUST BAR */
+
+.trust{
+background:#352a25;
+color:white;
+padding:25px 0;
+}
+
+.trust-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+text-align:center;
+}
+
+.trust-item{
+font-size:11px;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.trust-item span{
+display:block;
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+margin-bottom:4px;
+}
+
+/* SERVICES */
+
+.services{
+background:#eee5dc;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+border-top:1px solid #cdbfb3;
+border-left:1px solid #cdbfb3;
+}
+
+.service{
+padding:38px;
+border-right:1px solid #cdbfb3;
+border-bottom:1px solid #cdbfb3;
+min-height:275px;
+}
+
+.service-number{
+font-size:10px;
+letter-spacing:2px;
+color:#9b7862;
+}
+
+.service h3{
+font-size:34px;
+margin:20px 0 10px;
+}
+
+.service p{
+font-size:12px;
+color:#756861;
+margin-bottom:20px;
+}
+
+.service-price{
+font-size:12px;
+font-weight:600;
+}
+
+.service-link{
+display:inline-block;
+margin-top:15px;
+font-size:10px;
+letter-spacing:1px;
+text-transform:uppercase;
+border-bottom:1px solid #352a25;
+}
+
+/* WHY US */
+
+.why{
+display:grid;
+grid-template-columns:.9fr 1.1fr;
+gap:80px;
+align-items:center;
+}
+
+.why-image{
+height:600px;
+}
+
+.why-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.why-content h2{
+font-size:65px;
+line-height:.95;
+margin-bottom:25px;
+}
+
+.why-content>p{
+font-size:13px;
+color:#756861;
+margin-bottom:30px;
+max-width:530px;
+}
+
+.features{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+}
+
+.feature{
+border-top:1px solid #d2c6bd;
+padding-top:15px;
+}
+
+.feature h3{
+font-size:23px;
+margin-bottom:5px;
+}
+
+.feature p{
+font-size:11px;
+color:#756861;
+}
+
+/* ABOUT */
+
+.about{
+background:#f0e9e2;
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
+}
+
+.about-text h2{
+font-size:65px;
+line-height:.95;
+margin-bottom:25px;
+}
+
+.about-text p{
+font-size:13px;
+color:#756861;
+margin-bottom:18px;
+}
+
+.about-stat{
+display:flex;
+gap:45px;
+margin-top:30px;
+}
+
+.stat strong{
+font-family:'Cormorant Garamond',serif;
+font-size:40px;
+display:block;
+}
+
+.stat span{
+font-size:10px;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#756861;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.gallery-item{
+height:370px;
+overflow:hidden;
+}
+
+.gallery-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.5s;
+}
+
+.gallery-item:hover img{
+transform:scale(1.05);
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+background:#352a25;
+color:white;
+}
+
+.testimonials .section-heading p{
+color:#d3c7c0;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.testimonial{
+border:1px solid rgba(255,255,255,.18);
+padding:35px;
+}
+
+.stars{
+color:#d6b99d;
+letter-spacing:4px;
+margin-bottom:18px;
+}
+
+.testimonial p{
+font-family:'Cormorant Garamond',serif;
+font-size:23px;
+line-height:1.4;
+margin-bottom:20px;
+}
+
+.testimonial span{
+font-size:10px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+color:#c8bbb2;
+}
+
+/* BOOKING CTA */
+
+.booking{
+background:#eee5dc;
+text-align:center;
+}
+
+.booking h2{
+font-size:72px;
+line-height:.9;
+margin-bottom:20px;
+}
+
+.booking p{
+max-width:550px;
+margin:0 auto 30px;
+font-size:13px;
+color:#756861;
+}
+
+/* CONTACT */
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+}
+
+.contact h2{
+font-size:70px;
+line-height:.9;
+margin-bottom:25px;
+}
+
+.contact-intro{
+font-size:13px;
+color:#756861;
+max-width:500px;
+margin-bottom:30px;
+}
+
+.contact-details{
+display:grid;
+gap:25px;
+}
+
+.contact-detail{
+border-bottom:1px solid #d7cbc2;
+padding-bottom:20px;
+}
+
+.contact-detail h3{
+font-size:25px;
+margin-bottom:4px;
+}
+
+.contact-detail p{
+font-size:12px;
+color:#756861;
+}
+
+/* FOOTER */
+
+footer{
+background:#2d231f;
+color:#d8cdc6;
+padding:40px 0;
+}
+
+.footer-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:10px;
+letter-spacing:1px;
+}
+
+.footer-logo{
+font-family:'Cormorant Garamond',serif;
+font-size:27px;
+color:white;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+right:25px;
+bottom:25px;
+width:58px;
+height:58px;
+border-radius:50%;
+background:#25D366;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+z-index:999;
+box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+.container{
+width:90%;
+}
+
+.nav-inner{
+width:90%;
+}
+
+.nav-links{
+display:none;
+}
+
+.nav-cta{
+padding:10px 15px;
+}
+
+.hero{
+grid-template-columns:1fr;
+padding-top:120px;
+gap:40px;
+}
+
+.hero-image{
+height:480px;
+order:-1;
+}
+
+.hero-badge{
+left:15px;
+}
+
+.hero h1{
+font-size:65px;
+}
+
+.trust-grid{
+grid-template-columns:1fr 1fr;
+gap:25px;
+}
+
+.service-grid{
+grid-template-columns:1fr;
+}
+
+.why,
+.about-grid,
+.contact-grid{
+grid-template-columns:1fr;
+gap:45px;
+}
+
+.why-image{
+height:480px;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+.about-stat{
+gap:25px;
+}
+
+.gallery{
+grid-template-columns:1fr 1fr;
+}
+
+.gallery-item{
+height:270px;
+}
+
+.testimonial-grid{
+grid-template-columns:1fr;
+}
+
+.booking h2{
+font-size:55px;
+}
+
+.contact h2{
+font-size:55px;
+}
+
+.footer-inner{
+flex-direction:column;
+gap:15px;
+text-align:center;
+}
+
+}
+
+@media(max-width:500px){
+
+.hero h1{
+font-size:55px;
+}
+
+.hero-image{
+height:400px;
+}
+
+.section-heading h2{
+font-size:48px;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.gallery-item{
+height:350px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+<!-- NAVIGATION -->
 
-  <nav>
-    <a href="#" class="logo">Glow & Grace</a>
+<nav>
 
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </div>
+<div class="nav-inner">
 
-    <a href="#contact" class="nav-button">Book Now</a>
-  </nav>
+<a href="#" class="logo">
+Glow & Grace
+</a>
 
+<div class="nav-links">
+<a href="#services">Services</a>
+<a href="#why">Why Us</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+</div>
 
-  <!-- HERO -->
+<a href="#booking" class="nav-cta">
+Book Now
+</a>
 
-  <section class="hero">
+</div>
 
-    <div class="hero-text">
+</nav>
 
-      <div class="eyebrow">
-        Beauty • Hair • Bridal
-      </div>
 
-      <h1>
-        Your beauty,<br>
-        <span>beautifully</span> expressed.
-      </h1>
+<!-- HERO -->
 
-      <p>
-        A warm, luxurious beauty studio dedicated to helping you
-        look and feel your absolute best. From everyday beauty
-        to your most special moments.
-      </p>
+<main>
 
-      <div class="hero-buttons">
-        <a href="#contact" class="button">
-          Book Appointment
-        </a>
+<section class="hero container">
 
-        <a href="#services" class="button button-outline">
-          Explore Services
-        </a>
-      </div>
+<div class="hero-content">
 
-    </div>
+<div class="eyebrow">
+Beauty • Hair • Skin • Bridal
+</div>
 
-    <div class="hero-image">
+<h1>
+Beauty that<br>
+makes you <em>glow.</em>
+</h1>
 
-      <img
-        src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=85"
-        alt="Luxury beauty salon"
-      >
+<p class="hero-description">
+A premium beauty studio in Chennai offering personalised
+hair, skin, makeup, nail and bridal services in a calm,
+comfortable space.
+</p>
 
-    </div>
+<div class="hero-buttons">
 
-  </section>
+<a href="#booking" class="btn">
+Book Appointment
+</a>
 
+<a href="#services" class="btn btn-light">
+Explore Services
+</a>
 
-  <!-- SERVICES -->
+</div>
 
-  <section class="services" id="services">
+</div>
 
-    <div class="section-header">
 
-      <div class="eyebrow">
-        What we offer
-      </div>
+<div class="hero-image">
 
-      <h2>
-        Beauty, your way.
-      </h2>
+<img
+src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=85"
+alt="Luxury beauty salon"
+>
 
-      <p>
-        Thoughtfully curated beauty services designed
-        around you.
-      </p>
+<div class="hero-badge">
 
-    </div>
+<strong>5.0 ★</strong>
 
-    <div class="service-grid">
+<span>
+Loved by our clients
+</span>
 
-      <div class="service">
+</div>
 
-        <div class="service-number">01</div>
+</div>
 
-        <h3>Hair</h3>
+</section>
 
-        <p>
-          Cuts, styling, colouring and treatments
-          tailored to your individual style.
-        </p>
 
-        <div class="price">
-          Starting from ₹499
-        </div>
+<!-- TRUST -->
 
-      </div>
+<div class="trust">
 
+<div class="container trust-grid">
 
-      <div class="service">
+<div class="trust-item">
+<span>10+</span>
+Years Experience
+</div>
 
-        <div class="service-number">02</div>
+<div class="trust-item">
+<span>2K+</span>
+Happy Clients
+</div>
 
-        <h3>Skin</h3>
+<div class="trust-item">
+<span>5.0</span>
+Client Rating
+</div>
 
-        <p>
-          Relaxing facials and skincare treatments
-          for naturally glowing skin.
-        </p>
+<div class="trust-item">
+<span>100%</span>
+Personalised Care
+</div>
 
-        <div class="price">
-          Starting from ₹699
-        </div>
+</div>
 
-      </div>
+</div>
 
 
-      <div class="service">
+<!-- SERVICES -->
 
-        <div class="service-number">03</div>
+<section class="services" id="services">
 
-        <h3>Bridal</h3>
+<div class="container">
 
-        <p>
-          Complete bridal beauty packages for
-          your most unforgettable day.
-        </p>
+<div class="section-heading">
 
-        <div class="price">
-          Starting from ₹4,999
-        </div>
+<div class="eyebrow">
+Our services
+</div>
 
-      </div>
+<h2>
+Everything you need to feel your best.
+</h2>
 
+<p>
+From everyday self-care to your most important occasions,
+our services are designed around you.
+</p>
 
-      <div class="service">
+</div>
 
-        <div class="service-number">04</div>
 
-        <h3>Nails</h3>
+<div class="service-grid">
 
-        <p>
-          Manicure, pedicure and elegant nail
-          treatments for perfectly polished hands.
-        </p>
+<div class="service">
 
-        <div class="price">
-          Starting from ₹399
-        </div>
+<div class="service-number">01 / HAIR</div>
 
-      </div>
+<h3>Hair</h3>
 
+<p>
+Haircuts, styling, spa treatments, colouring
+and personalised hair care.
+</p>
 
-      <div class="service">
+<div class="service-price">
+From ₹499
+</div>
 
-        <div class="service-number">05</div>
+<a href="#booking" class="service-link">
+Book Hair Service
+</a>
 
-        <h3>Makeup</h3>
+</div>
 
-        <p>
-          Professional makeup for parties,
-          celebrations and special occasions.
-        </p>
 
-        <div class="price">
-          Starting from ₹1,499
-        </div>
+<div class="service">
 
-      </div>
+<div class="service-number">02 / SKIN</div>
 
+<h3>Skin</h3>
 
-      <div class="service">
+<p>
+Facials, cleanups and skincare treatments
+for naturally healthy-looking skin.
+</p>
 
-        <div class="service-number">06</div>
+<div class="service-price">
+From ₹499
+</div>
 
-        <h3>Spa</h3>
+<a href="#booking" class="service-link">
+Book Skin Service
+</a>
 
-        <p>
-          Take a moment for yourself with our
-          relaxing spa and body treatments.
-        </p>
+</div>
 
-        <div class="price">
-          Starting from ₹999
-        </div>
 
-      </div>
+<div class="service">
 
-    </div>
+<div class="service-number">03 / BRIDAL</div>
 
-  </section>
+<h3>Bridal</h3>
 
+<p>
+Complete bridal beauty packages created
+for your most memorable day.
+</p>
 
-  <!-- ABOUT -->
+<div class="service-price">
+From ₹4,999
+</div>
 
-  <section class="about" id="about">
+<a href="#booking" class="service-link">
+Enquire Now
+</a>
 
-    <div class="about-image">
+</div>
 
-      <img
-        src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1000&q=85"
-        alt="Beauty salon interior"
-      >
 
-    </div>
+<div class="service">
 
+<div class="service-number">04 / MAKEUP</div>
 
-    <div class="about-text">
+<h3>Makeup</h3>
 
-      <div class="eyebrow">
-        Our story
-      </div>
+<p>
+Professional makeup for parties, celebrations,
+photoshoots and special occasions.
+</p>
 
-      <h2>
-        A little luxury,<br>
-        just for you.
-      </h2>
+<div class="service-price">
+From ₹1,499
+</div>
 
-      <p>
-        At Glow & Grace, we believe beauty is not about
-        changing who you are. It's about bringing out
-        the best version of yourself.
-      </p>
+<a href="#booking" class="service-link">
+Book Makeup
+</a>
 
-      <p>
-        Our studio was created as a calm, welcoming space
-        where you can slow down, relax and leave feeling
-        confident.
-      </p>
+</div>
 
-      <a href="#contact" class="button">
-        Visit Our Studio
-      </a>
 
-    </div>
+<div class="service">
 
-  </section>
+<div class="service-number">05 / NAILS</div>
 
+<h3>Nails</h3>
 
-  <!-- GALLERY -->
+<p>
+Manicure, pedicure and elegant nail treatments
+for perfectly polished hands.
+</p>
 
-  <section id="gallery">
+<div class="service-price">
+From ₹399
+</div>
 
-    <div class="section-header">
+<a href="#booking" class="service-link">
+Book Nails
+</a>
 
-      <div class="eyebrow">
-        Our work
-      </div>
+</div>
 
-      <h2>
-        Beauty in every detail.
-      </h2>
 
-    </div>
+<div class="service">
 
+<div class="service-number">06 / SPA</div>
 
-    <div class="gallery">
+<h3>Spa</h3>
 
-      <div class="gallery-item">
-        <img
-          src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=85"
-          alt="Hair styling"
-        >
-      </div>
+<p>
+Relaxing body and spa treatments designed
+to help you slow down and recharge.
+</p>
 
-      <div class="gallery-item">
-        <img
-          src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=85"
-          alt="Beauty makeup"
-        >
-      </div>
+<div class="service-price">
+From ₹999
+</div>
 
-      <div class="gallery-item">
-        <img
-          src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=85"
-          alt="Nail treatment"
-        >
-      </div>
+<a href="#booking" class="service-link">
+Book Spa
+</a>
 
-      <div class="gallery-item">
-        <img
-          src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=85"
-          alt="Beauty studio"
-        >
-      </div>
+</div>
 
-      <div class="gallery-item">
-        <img
-          src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=85"
-          alt="Hair salon"
-        >
-      </div>
+</div>
 
-      <div class="gallery-item">
-        <img
-          src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=85"
-          alt="Beauty treatment"
-        >
-      </div>
+</div>
 
-    </div>
+</section>
 
-  </section>
 
+<!-- WHY CHOOSE US -->
 
-  <!-- TESTIMONIALS -->
+<section id="why">
 
-  <section class="testimonials">
+<div class="container why">
 
-    <div class="section-header">
+<div class="why-image">
 
-      <div class="eyebrow">
-        Kind words
-      </div>
+<img
+src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1000&q=85"
+alt="Beauty salon interior"
+>
 
-      <h2>
-        Loved by our clients.
-      </h2>
+</div>
 
-      <p>
-        A few words from the women who trust us
-        with their beauty.
-      </p>
 
-    </div>
+<div class="why-content">
 
+<div class="eyebrow">
+Why Glow & Grace
+</div>
 
-    <div class="testimonial-grid">
+<h2>
+More than a salon.<br>
+A little time for you.
+</h2>
 
-      <div class="testimonial">
+<p>
+We believe your salon visit should be more than just
+another appointment. From the moment you walk in,
+our focus is making you feel comfortable, cared for
+and confident.
+</p>
 
-        <div class="stars">★★★★★</div>
 
-        <p>
-          "The most relaxing salon experience
-          I've ever had. I absolutely loved my hair!"
-        </p>
+<div class="features">
 
-        <span>
-          — Ananya R.
-        </span>
+<div class="feature">
 
-      </div>
+<h3>01</h3>
 
+<h3>Experienced Team</h3>
 
-      <div class="testimonial">
+<p>
+Professionals who understand your style
+and individual beauty needs.
+</p>
 
-        <div class="stars">★★★★★</div>
+</div>
 
-        <p>
-          "My bridal makeup was exactly what I
-          dreamed of. The team was wonderful."
-        </p>
 
-        <span>
-          — Priya S.
-        </span>
+<div class="feature">
 
-      </div>
+<h3>02</h3>
 
+<h3>Premium Products</h3>
 
-      <div class="testimonial">
+<p>
+Quality products selected with your
+hair and skin in mind.
+</p>
 
-        <div class="stars">★★★★★</div>
+</div>
 
-        <p>
-          "Beautiful space, lovely people and
-          amazing service. Definitely coming back."
-        </p>
 
-        <span>
-          — Meera K.
-        </span>
+<div class="feature">
 
-      </div>
+<h3>03</h3>
 
-    </div>
+<h3>Personalised Care</h3>
 
-  </section>
+<p>
+Every appointment begins with understanding
+what works best for you.
+</p>
 
+</div>
 
-  <!-- CONTACT -->
 
-  <section class="contact" id="contact">
+<div class="feature">
 
-    <div>
+<h3>04</h3>
 
-      <div class="eyebrow">
-        Come say hello
-      </div>
+<h3>Clean & Comfortable</h3>
 
-      <h2>
-        Let's make<br>
-        you glow.
-      </h2>
+<p>
+A welcoming studio where you can relax
+and enjoy your time.
+</p>
 
-      <p>
-        Ready for a little self-care?
-        Book your appointment and let us
-        take care of the rest.
-      </p>
+</div>
 
-      <a
-        href="https://wa.me/919999999999"
-        class="button"
-        target="_blank"
-      >
-        WhatsApp Us
-      </a>
+</div>
 
-    </div>
+</div>
 
+</div>
 
-    <div class="contact-details">
+</section>
 
-      <div class="contact-detail">
 
-        <h3>Visit</h3>
+<!-- ABOUT -->
 
-        <p>
-          24, Anna Nagar<br>
-          Chennai, Tamil Nadu
-        </p>
+<section class="about">
 
-      </div>
+<div class="container about-grid">
 
+<div class="about-text">
 
-      <div class="contact-detail">
+<div class="eyebrow">
+Our story
+</div>
 
-        <h3>Call</h3>
+<h2>
+Your time.<br>
+Your glow.<br>
+Your space.
+</h2>
 
-        <p>
-          +91 99999 99999
-        </p>
+<p>
+Glow & Grace was created with one simple idea:
+beauty appointments should leave you feeling
+better than when you arrived.
+</p>
 
-      </div>
+<p>
+Whether you're preparing for your wedding,
+getting ready for a celebration or simply taking
+an afternoon for yourself, we're here to make
+every visit special.
+</p>
 
+<div class="about-stat">
 
-      <div class="contact-detail">
+<div class="stat">
 
-        <h3>Hours</h3>
+<strong>10+</strong>
 
-        <p>
-          Monday – Saturday<br>
-          10:00 AM – 8:00 PM
-        </p>
+<span>Years</span>
 
-      </div>
+</div>
 
+<div class="stat">
 
-      <div class="contact-detail">
+<strong>2K+</strong>
 
-        <h3>Instagram</h3>
+<span>Clients</span>
 
-        <p>
-          @glowandgrace
-        </p>
+</div>
 
-      </div>
+<div class="stat">
 
-    </div>
+<strong>5.0</strong>
 
-  </section>
+<span>Rating</span>
 
+</div>
 
-  <!-- FOOTER -->
+</div>
 
-  <footer>
+</div>
 
-    <div class="footer-logo">
-      Glow & Grace
-    </div>
 
-    <div>
-      © 2026 Glow & Grace Beauty Studio
-    </div>
+<div class="why-image">
 
-    <div>
-      Beauty • Confidence • You
-    </div>
+<img
+src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1000&q=85"
+alt="Beauty salon"
+>
 
-  </footer>
+</div>
 
+</div>
 
-  <!-- WHATSAPP BUTTON -->
+</section>
 
-  <a
-    href="https://wa.me/919999999999"
-    class="whatsapp"
-    target="_blank"
-    aria-label="WhatsApp"
-  >
-    ☎
-  </a>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+Our work
+</div>
+
+<h2>
+A glimpse of the Glow & Grace experience.
+</h2>
+
+</div>
+
+
+<div class="gallery">
+
+<div class="gallery-item">
+
+<img
+src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=85"
+alt="Hair styling"
+>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=85"
+alt="Beauty makeup"
+>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=85"
+alt="Nail treatment"
+>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=85"
+alt="Beauty studio"
+>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=85"
+alt="Hair salon"
+>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=85"
+alt="Spa treatment"
+>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+Client love
+</div>
+
+<h2>
+Real words from happy clients.
+</h2>
+
+<p>
+Because the best recommendation is one that comes
+from someone who has already experienced it.
+</p>
+
+</div>
+
+
+<div class="testimonial-grid">
+
+<div class="testimonial">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"The most relaxing salon experience I've ever had.
+I absolutely loved my hair!"
+</p>
+
+<span>
+— Ananya R.
+</span>
+
+</div>
+
+
+<div class="testimonial">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"My bridal makeup was exactly what I dreamed of.
+The team was wonderful from start to finish."
+</p>
+
+<span>
+— Priya S.
+</span>
+
+</div>
+
+
+<div class="testimonial">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Beautiful space, lovely people and amazing service.
+Definitely coming back."
+</p>
+
+<span>
+— Meera K.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BOOKING -->
+
+<section class="booking" id="booking">
+
+<div class="container">
+
+<div class="eyebrow">
+Ready when you are
+</div>
+
+<h2>
+Let's make you glow.
+</h2>
+
+<p>
+Have a question about a service or want to reserve
+your appointment? Send us a WhatsApp message and
+we'll get back to you.
+</p>
+
+<a
+href="https://wa.me/919999999999?text=Hi%20Glow%20%26%20Grace%2C%20I%27d%20like%20to%20book%20an%20appointment."
+target="_blank"
+class="btn"
+>
+WhatsApp to Book
+</a>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container contact-grid">
+
+<div>
+
+<div class="eyebrow">
+Visit us
+</div>
+
+<h2>
+Come in.<br>
+Feel good.<br>
+Glow.
+</h2>
+
+<p class="contact-intro">
+We're located in Anna Nagar, Chennai.
+Walk in for a consultation or message us
+to reserve your appointment.
+</p>
+
+<a
+href="https://www.google.com/maps/search/?api=1&query=Anna+Nagar+Chennai"
+target="_blank"
+class="btn"
+>
+Get Directions
+</a>
+
+</div>
+
+
+<div class="contact-details">
+
+<div class="contact-detail">
+
+<h3>Address</h3>
+
+<p>
+24, Anna Nagar<br>
+Chennai, Tamil Nadu
+</p>
+
+</div>
+
+
+<div class="contact-detail">
+
+<h3>Phone</h3>
+
+<p>
++91 99999 99999
+</p>
+
+</div>
+
+
+<div class="contact-detail">
+
+<h3>Opening Hours</h3>
+
+<p>
+Monday – Saturday<br>
+10:00 AM – 8:00 PM
+</p>
+
+</div>
+
+
+<div class="contact-detail">
+
+<h3>Instagram</h3>
+
+<p>
+@glowandgrace
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-inner">
+
+<div class="footer-logo">
+Glow & Grace
+</div>
+
+<div>
+© 2026 Glow & Grace Beauty Studio
+</div>
+
+<div>
+Beauty • Confidence • You
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+
+<a
+href="https://wa.me/919999999999?text=Hi%20Glow%20%26%20Grace%2C%20I%27d%20like%20to%20book%20an%20appointment."
+target="_blank"
+class="whatsapp"
+aria-label="WhatsApp"
+>
+☎
+</a>
 
 </body>
 </html>
